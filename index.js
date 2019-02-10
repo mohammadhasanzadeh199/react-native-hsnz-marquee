@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 
 
 export default class HSNZ extends Component {
     constructor(props){
-        super(props)
+        super(props);
+        this.style = this.props.style;
     }
     render(){
         return(
-            <View>
-                <Text>ssss</Text>
+            <View style={this.style}>
+                <View>
+                    {this.props.children}
+                </View>
             </View>
         );
     }

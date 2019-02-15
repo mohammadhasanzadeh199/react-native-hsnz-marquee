@@ -52,7 +52,7 @@ export default class App extends Component {
         style={{height:150,width:250,backgroundColor:'#eee',borderWidth: 5}}
         onEnd = {this.end}
         >
-          <Text>   look here! I'm a greate marquee</Text>
+          <Text>   look here! I am a greate marquee</Text>
           <View style={{height:50,width:50 , backgroundColor: '#333',marginLeft:10}}></View>
         </HSNZ>
       </View>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     speed={20}
     onEnd = {this.end}
     >
-      <Text>   look here! I'm a greate marquee</Text>
+      <Text>   look here! I am a greate marquee</Text>
       <View style={{height:50,width:50 , backgroundColor: '#333',marginLeft:10}}></View>
 </HSNZ>
 ```

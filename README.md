@@ -7,9 +7,6 @@ A cross-platform marquee component for React Native.
 
 This is a JavaScript-only implementation marquee. It's super customizable, allowing you to customize play direction,reapete number....
 
-- [Run the example app to see it in action](https://expo.io/@satya164/react-native-tab-view-demos).
-- Checkout the [example/](https://github.com/react-native-community/react-native-tab-view/tree/master/example) folder for source code.
-
 ## Features
 
 - Smooth animations
@@ -22,6 +19,7 @@ This is a JavaScript-only implementation marquee. It's super customizable, allow
 
 <a href="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/1.gif"><img src="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/1.gif" width="360"></a>
 
+<a href="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/2.gif"><img src="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/2.gif" width="360"></a>
 ## Installation
 
 ```sh

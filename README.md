@@ -1,7 +1,4 @@
 # react-native-hsnz-marquee
-[![Build Status][build-badge]][build]
-[![Version][version-badge]][package]
-[![MIT License][license-badge]][license]
 
 A cross-platform marquee component for React Native.
 

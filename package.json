@@ -1,6 +1,6 @@
 {
   "name": "react-native-hsnz-marquee",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react native module for marquee text(beta)",
   "main": "index.js",
   "scripts": {

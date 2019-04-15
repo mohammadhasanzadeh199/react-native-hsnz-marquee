@@ -21,22 +21,7 @@ export default class HSNZ extends Component {
     this.isAminEnded = true;
     this.puaseWaiting = false;
     this.stopWaiting = false;
-    if (this.props.autoPlay == false) {
-      this.startWaiting = false;
-    }
-    if (this.props.direction == "ltr") {
-      this.direction = "ltr";
-    } else if (this.props.direction == "ttb") {
-      this.direction = "ttb"
-    } else if (this.props.direction == "btt") {
-      this.direction = "btt"
-    }
-    if (this.props.speed != null) {
-      this.speed = this.props.speed;
-    }
-    if (this.loop != null) {
-      this.loop = this.props.loop;
-    }
+    this.reUpdate = this.reUpdate.bind(this)
   }
 
 
@@ -65,6 +50,26 @@ export default class HSNZ extends Component {
       this.animation.stop();
       this.setState({ scrollValue: -this.contentWidth });
       this.isPlay = false;
+    }
+  }
+
+
+  reUpdate(){
+    if (this.props.autoPlay == false) {
+      this.startWaiting = false;
+    }
+    if (this.props.direction == "ltr") {
+      this.direction = "ltr";
+    } else if (this.props.direction == "ttb") {
+      this.direction = "ttb"
+    } else if (this.props.direction == "btt") {
+      this.direction = "btt"
+    }
+    if (this.props.speed != null) {
+      this.speed = this.props.speed;
+    }
+    if (this.props.loop != null) {
+      this.loop = this.props.loop;
     }
   }
 
@@ -134,6 +139,7 @@ export default class HSNZ extends Component {
   }
 
   render() {
+    this.reUpdate();
     return (
       <View
         style={[this.props.style, { position: 'relative', overflow: 'hidden' }]}

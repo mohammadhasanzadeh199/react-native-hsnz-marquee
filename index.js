@@ -128,7 +128,7 @@ export default class HSNZ extends Component {
           toValue: this.width,
           easing: Easing.linear,
           duration: (this.width + this.contentWidth) * this.speed,
-          useNativeDriver: true,
+          useNativeDriver: false,
         });
         this.animation.start(() => {
           this.end();

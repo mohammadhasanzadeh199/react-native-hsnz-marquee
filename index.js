@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { Animated, StyleSheet, Easing, View, ToastAndroid } from 'react-native';
-
+import React, { Component } from "react";
+import { Animated, StyleSheet, Easing, View } from "react-native";
 
 export default class HSNZ extends Component {
   constructor(props) {
@@ -8,7 +7,7 @@ export default class HSNZ extends Component {
     this.state = {
       fakeRender: true,
       scrollValue: null,
-    }
+    };
     this.isPlay = false;
     this.width = null;
     this.contentWidth = null;
@@ -21,10 +20,8 @@ export default class HSNZ extends Component {
     this.isAminEnded = true;
     this.puaseWaiting = false;
     this.stopWaiting = false;
-    this.reUpdate = this.reUpdate.bind(this)
+    this.reUpdate = this.reUpdate.bind(this);
   }
-
-
 
   start() {
     this.startWaiting = true;
@@ -33,8 +30,6 @@ export default class HSNZ extends Component {
     }
   }
 
-
-
   puase() {
     if (this.isPlay) {
       this.isAminEnded = false;
@@ -42,7 +37,6 @@ export default class HSNZ extends Component {
       this.isPlay = false;
     }
   }
-
 
   //doesn't works
   stop() {
@@ -53,17 +47,16 @@ export default class HSNZ extends Component {
     }
   }
 
-
-  reUpdate(){
+  reUpdate() {
     if (this.props.autoPlay == false) {
       this.startWaiting = false;
     }
     if (this.props.direction == "ltr") {
       this.direction = "ltr";
     } else if (this.props.direction == "ttb") {
-      this.direction = "ttb"
+      this.direction = "ttb";
     } else if (this.props.direction == "btt") {
-      this.direction = "btt"
+      this.direction = "btt";
     }
     if (this.props.speed != null) {
       this.speed = this.props.speed;
@@ -73,15 +66,15 @@ export default class HSNZ extends Component {
     }
   }
 
-
   resume() {
-    if (this.animation != null&&!this.isPlay) {
-      this.animation.start(() => { this.end() });
+    if (this.animation != null && !this.isPlay) {
+      this.animation.start(() => {
+        this.end();
+      });
       this.isPlay = true;
     }
     this.isAminEnded = true;
   }
-
 
   end() {
     if (this.isAminEnded) {
@@ -94,12 +87,9 @@ export default class HSNZ extends Component {
     }
   }
 
-
-
   setContent(content) {
     this.content = content;
   }
-
 
   parentLayout(e) {
     if (this.width == null) {
@@ -114,7 +104,6 @@ export default class HSNZ extends Component {
     }
   }
 
-
   contentLayout(e) {
     if (this.contentWidth == null) {
       if (this.direction == "rtl" || this.direction == "ltr") {
@@ -128,13 +117,24 @@ export default class HSNZ extends Component {
     }
   }
 
-
-
   startAnim() {
-    this.setState({ fakeRender: false, scrollValue: new Animated.Value(-this.contentWidth) }, () => {
-      this.animation = Animated.timing(this.state.scrollValue, { toValue: this.width, easing: Easing.linear, duration: (this.width + this.contentWidth) * this.speed })
-      this.animation.start(() => { this.end() });
-    });
+    this.setState(
+      {
+        fakeRender: false,
+        scrollValue: new Animated.Value(-this.contentWidth),
+      },
+      () => {
+        this.animation = Animated.timing(this.state.scrollValue, {
+          toValue: this.width,
+          easing: Easing.linear,
+          duration: (this.width + this.contentWidth) * this.speed,
+          useNativeDriver: true,
+        });
+        this.animation.start(() => {
+          this.end();
+        });
+      }
+    );
     this.isPlay = true;
   }
 
@@ -142,43 +142,45 @@ export default class HSNZ extends Component {
     this.reUpdate();
     return (
       <View
-        style={[this.props.style, { position: 'relative', overflow: 'hidden' }]}
-        onLayout={this.parentLayout.bind(this)}>
-        {this.state.fakeRender &&
-          <View style={{ position: 'absolute', opacity: 0 }}
+        style={[this.props.style, { position: "relative", overflow: "hidden" }]}
+        onLayout={this.parentLayout.bind(this)}
+      >
+        {this.state.fakeRender && (
+          <View
+            style={{ position: "absolute", opacity: 0 }}
             onLayout={this.contentLayout.bind(this)}
           >
             {this.content}
           </View>
-        }
-        {!this.state.fakeRender && this.direction == "rtl" &&
+        )}
+        {!this.state.fakeRender && this.direction == "rtl" && (
           <Animated.View
-            style={{ position: 'absolute', right: this.state.scrollValue }}
+            style={{ position: "absolute", right: this.state.scrollValue }}
           >
             {this.content}
           </Animated.View>
-        }
-        {!this.state.fakeRender && this.direction == "ltr" &&
+        )}
+        {!this.state.fakeRender && this.direction == "ltr" && (
           <Animated.View
-            style={{ position: 'absolute', left: this.state.scrollValue }}
+            style={{ position: "absolute", left: this.state.scrollValue }}
           >
             {this.content}
           </Animated.View>
-        }
-        {!this.state.fakeRender && this.direction == "ttb" &&
+        )}
+        {!this.state.fakeRender && this.direction == "ttb" && (
           <Animated.View
-            style={{ position: 'absolute', top: this.state.scrollValue }}
+            style={{ position: "absolute", top: this.state.scrollValue }}
           >
             {this.content}
           </Animated.View>
-        }
-        {!this.state.fakeRender && this.direction == "btt" &&
+        )}
+        {!this.state.fakeRender && this.direction == "btt" && (
           <Animated.View
-            style={{ position: 'absolute', bottom: this.state.scrollValue }}
+            style={{ position: "absolute", bottom: this.state.scrollValue }}
           >
             {this.content}
           </Animated.View>
-        }
+        )}
       </View>
     );
   }
@@ -187,18 +189,18 @@ export default class HSNZ extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     margin: 10,
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
+    textAlign: "center",
+    color: "#333333",
     marginBottom: 5,
   },
 });

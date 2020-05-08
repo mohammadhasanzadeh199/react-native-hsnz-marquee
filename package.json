@@ -1,5 +1,5 @@
 {
-  "name": "react-native-hsnz-marquee",
+  "name": "react-native-marquee",
   "version": "1.0.1",
   "description": "react native module for marquee text(beta)",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "scroll",
     "react"
   ],
-  "author": "mohammad hasanzadeh",
+  "author": "mohammad hasanzadeh & nick mandylas",
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.41.2",
@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohammadhasanzadeh199/react-native-hsnz-marquee.git"
+    "url": "git+https://github.com/NickMandylas/react-native-hsnz-marquee"
   },
   "bugs": {
-    "url": "https://github.com/mohammadhasanzadeh199/react-native-hsnz-marquee/issues"
+    "url": "https://github.com/NickMandylas/react-native-hsnz-marquee/issues"
   },
-  "homepage": "https://github.com/mohammadhasanzadeh199/react-native-hsnz-marquee#readme"
+  "homepage": "https://github.com/NickMandylas/react-native-hsnz-marquee"
 }

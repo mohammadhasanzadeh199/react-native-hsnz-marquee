@@ -1,5 +1,8 @@
 # react-native-hsnz-marquee
 
+Updated by Nick Mandylas.
+Credit to Mohammad Hasanzadeh.
+
 A cross-platform marquee component for React Native.
 
 This is a JavaScript-only implementation marquee. It's super customizable, allowing you to customize play direction,reapete number....
@@ -17,6 +20,7 @@ This is a JavaScript-only implementation marquee. It's super customizable, allow
 <a href="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/1.gif"><img src="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/1.gif" width="360"></a>
 
 <a href="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/2.gif"><img src="https://raw.githubusercontent.com/mohammadhasanzadeh199/mediaCloude/master/2.gif" width="360"></a>
+
 ## Installation
 
 ```sh
@@ -26,17 +30,25 @@ npm install react-native-hsnz-marquee --save
 ## Quick Start
 
 ```js
-import React, { Component } from 'react';
-import { Platform, Dimensions, StyleSheet, Text, View, ToastAndroid, Image } from 'react-native';
-import HSNZ from 'react-native-hsnz-marquee'
+import React, { Component } from "react";
+import {
+  Platform,
+  Dimensions,
+  StyleSheet,
+  Text,
+  View,
+  ToastAndroid,
+  Image,
+} from "react-native";
+import HSNZ from "react-native-hsnz-marquee";
 
 export default class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.end = this.end.bind(this);
   }
-  end(){
-    console.log('end of play')
+  end() {
+    console.log("end of play");
   }
 
   render() {
@@ -45,12 +57,24 @@ export default class App extends Component {
         <Text style={styles.welcome}>react native hsnz marque</Text>
         <Text style={styles.instructions}>marquee module for react native</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <HSNZ 
-        style={{height:150,width:250,backgroundColor:'#eee',borderWidth: 5}}
-        onEnd = {this.end}
+        <HSNZ
+          style={{
+            height: 150,
+            width: 250,
+            backgroundColor: "#eee",
+            borderWidth: 5,
+          }}
+          onEnd={this.end}
         >
-          <Text>   look here! I am a greate marquee</Text>
-          <View style={{height:50,width:50 , backgroundColor: '#333',marginLeft:10}}></View>
+          <Text> look here! I am a greate marquee</Text>
+          <View
+            style={{
+              height: 50,
+              width: 50,
+              backgroundColor: "#333",
+              marginLeft: 10,
+            }}
+          ></View>
         </HSNZ>
       </View>
     );
@@ -60,23 +84,22 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     margin: 10,
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
+    textAlign: "center",
+    color: "#333333",
     marginBottom: 5,
   },
 });
 ```
-
 
 ## Props
 
@@ -89,19 +112,21 @@ const styles = StyleSheet.create({
 #### Example
 
 ```js
-<HSNZ 
-    style={{height:150,width:250,backgroundColor:'#eee',borderWidth: 5}}
-    ref={(ref)=>{
-      this.reff = ref
-    }}
-    loop = {-1}
-    direction={"rtl"}
-    autoPlay = {true}
-    speed={20}
-    onEnd = {this.end}
-    >
-      <Text>   look here! I am a greate marquee</Text>
-      <View style={{height:50,width:50 , backgroundColor: '#333',marginLeft:10}}></View>
+<HSNZ
+  style={{ height: 150, width: 250, backgroundColor: "#eee", borderWidth: 5 }}
+  ref={(ref) => {
+    this.reff = ref;
+  }}
+  loop={-1}
+  direction={"rtl"}
+  autoPlay={true}
+  speed={20}
+  onEnd={this.end}
+>
+  <Text> look here! I am a greate marquee</Text>
+  <View
+    style={{ height: 50, width: 50, backgroundColor: "#333", marginLeft: 10 }}
+  ></View>
 </HSNZ>
 ```
 
